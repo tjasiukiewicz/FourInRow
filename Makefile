@@ -3,7 +3,9 @@
 CFLAGS := -std=c99 -Wall -Wextra -pedantic
 CC := gcc
 
-OBJECTS := main.o board.o
+OBJECTS := main.o board.o token.o
+
+all: main
 
 main: $(OBJECTS)
 	$(CC) $(CFLAGS) -o main $(OBJECTS)
