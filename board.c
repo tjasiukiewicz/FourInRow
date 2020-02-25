@@ -1,5 +1,6 @@
 #include "board.h"
 #include "token.h"
+#include "board_displayer.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -101,4 +102,13 @@ bool board_is_full(const struct Board * board) {
         }
     }
     return answer;
+}
+
+void board_accept(const struct Board * board, struct BoardDisplayer * displayer) {
+    // TODO: Wypełnienie danych
+    int data[10];
+
+    board_displayer_visit(data);
+    (void) board;
+    (void) displayer;
 }
