@@ -10,7 +10,6 @@ struct Token;
 struct BoardDisplayer;
 
 struct Board * board_init(void);
-void board_print(const struct Board * board);
 bool board_insert_token(struct Board * board, const struct Token * token, short column);
 bool board_is_full(const struct Board * board);
-void board_accept(const struct Board * board, struct BoardDisplayer * displayer);
+void board_accept(const struct Board * board);

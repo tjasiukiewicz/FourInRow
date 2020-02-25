@@ -1,8 +1,10 @@
 #include "player.h"
-#include "board.h"
+#include "settings.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+static inline void consume_chars(void);
 
 struct Player {
     char name[32];
@@ -11,11 +13,6 @@ struct Player {
 
 static struct Player players[2];
 static unsigned player_count = 0;
-
-static inline void consume_chars(void) {
-    int c;
-    while (((c = getchar()) != EOF) && (c != '\n')) {}
-}
 
 struct Player * player_init(const char * name_, enum TokenColor color) {
     struct Player * my_player = &(players[player_count]);
@@ -46,3 +43,9 @@ short player_get_column(const struct Player * player) {
 const struct Token * player_get_token(const struct Player * player) {
     return &(player->token);
 }
+
+static inline void consume_chars(void) {
+    int c;
+    while (((c = getchar()) != EOF) && (c != '\n')) {}
+}
+

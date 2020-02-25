@@ -8,3 +8,7 @@ struct Token token_init(enum TokenColor color) {
 char token_get_repr(const struct Token * token) {
     return token->repr;
 }
+
+enum TokenColor token_get_color(const struct Token * token) {
+    return token->color;
+}
