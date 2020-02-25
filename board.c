@@ -5,9 +5,6 @@
 #include <stdlib.h>
 #include <assert.h>
 
-#define BOARD_WIDTH  7
-#define BOARD_HEIGHT 6
-
 struct Board {
     const struct Token * fields[BOARD_HEIGHT][BOARD_WIDTH];
 };
@@ -93,4 +90,15 @@ bool board_insert_token(struct Board * board, const struct Token * token, short 
         token_gravity(board, column);
     }
     return result;
+}
+
+bool board_is_full(const struct Board * board) {
+    bool answer = true;
+    for(unsigned col = 0; col < BOARD_WIDTH; ++col) {
+        if(board->fields[BOARD_HEIGHT - 1][col] == NULL) {
+            answer = false;
+            break;
+        }
+    }
+    return answer;
 }

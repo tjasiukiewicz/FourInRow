@@ -3,7 +3,7 @@
 CFLAGS := -std=c99 -Wall -Wextra -pedantic
 CC := gcc
 
-OBJECTS := main.o board.o token.o
+OBJECTS := main.o board.o token.o player.o game.o
 
 all: main
 
