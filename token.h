@@ -1,6 +1,10 @@
 #pragma once
 
-#include "token_color.h"
+#include "settings.h"
+
+#define X(en, enum_name, c) en,
+enum TokenColor { COLORS };
+#undef X
 
 struct Token {
     enum TokenColor color;

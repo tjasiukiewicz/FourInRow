@@ -4,6 +4,10 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define X(en, enum_name, c) enum_name,
+static const char * color_names[] = { COLORS };
+#undef X
+
 static inline void consume_chars(void);
 
 struct Player {
@@ -26,8 +30,8 @@ struct Player * player_init(const char * name_, enum TokenColor color) {
 short player_get_column(const struct Player * player) {
     short column = 0;
     for(;;) {
-        printf("Player: %s, plays: |%c|. Input column [1, %d]: ",
-            player->name, token_get_repr(&(player->token)), BOARD_WIDTH);
+        printf("Player: %s, plays: |%s|. Input column [1, %d]: ",
+            player->name, color_names[token_get_color(&player->token)], BOARD_WIDTH);
         if(1 != scanf("%hd", &column)) {
             fprintf(stderr, "Input error. Try again.\n");
         } else if((column > 0) && (column <= BOARD_WIDTH)) {

@@ -3,6 +3,10 @@
 #include <stdio.h>
 #include <string.h>
 
+#define X(en, enum_names, c) c,
+static char fields_char[] = { ' ', COLORS };
+#undef X
+
 inline static void show_column_names(void);
 inline static void show_row_separator(void);
 inline static void show_row(unsigned row);
@@ -48,10 +52,10 @@ inline static void show_row_separator(void) {
 }
 
 inline static void show_row(unsigned row) {
-    static const char repr[] = " XO";
+    //static const char repr[] = " XO";
     for(unsigned col = 0; col < BOARD_WIDTH; ++col) {
         int field = displayer.fields[row][col];
-        char c = (field > 2 ? '?': repr[field]);
+        char c = (field > 2 ? '?': fields_char[field]);
         printf("|%c", c);
     }
     puts("|");
