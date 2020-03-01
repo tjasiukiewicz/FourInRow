@@ -8,7 +8,6 @@
 static inline void swap_players(void);
 
 struct Game {
-    struct BoardDisplayer * displayer;
     const struct Player * current_player;
     const struct Player * next_player;
 };
@@ -17,7 +16,7 @@ static struct Game game;
 
 void game_init(void) {
     board_init();
-    game.displayer = board_displayer_init();
+    board_displayer_init();
     game.current_player = player_init("Adam", Red);
     game.next_player = player_init("Eve", Yellow);
 }

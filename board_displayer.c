@@ -17,9 +17,8 @@ struct BoardDisplayer {
 
 static struct BoardDisplayer displayer;
 
-struct BoardDisplayer * board_displayer_init(void) {
+void board_displayer_init(void) {
     memset(displayer.fields, 0, BOARD_WIDTH * BOARD_HEIGHT * sizeof(int));
-    return &displayer;
 }
 
 void board_displayer_visit(int * tab) {
