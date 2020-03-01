@@ -4,6 +4,9 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define MAX_PLAYERS     2
+#define MAX_NAME_LENGTH 24
+
 #define X(en, enum_name, c) enum_name,
 static const char * color_names[] = { COLORS };
 #undef X
@@ -11,11 +14,11 @@ static const char * color_names[] = { COLORS };
 static inline void consume_chars(void);
 
 struct Player {
-    char name[32];
+    char name[MAX_NAME_LENGTH];
     struct Token token;
 };
 
-static struct Player players[2];
+static struct Player players[MAX_PLAYERS];
 static unsigned player_count = 0;
 
 struct Player * player_init(const char * name_, enum TokenColor color) {
